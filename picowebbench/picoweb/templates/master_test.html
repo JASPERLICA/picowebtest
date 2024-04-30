@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    {%load static%}
+    <!-- <img src="{% static 'images/high2.jpg' %}" alt="My image"> -->
+    <!-- <link rel="stylesheet" href = "{% static 'myfirst.css'%}"> -->
+    <body style="background-image: url('{% static 'images/high2.jpg' %}')">  
+</head>
+<body>
+<style>
+  .flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    margin: 0 auto;
+  }
+  .flex-1 {
+    flex: 1;
+    margin: 5px;
+  }
+  .button_Green {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    width: 80%;
+    border-radius: 10px;
+  }
+  .button_red {
+    background-color: #eb3720; /* red */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    width: 80%;
+    border-radius: 10px;
+  }
+  .button_yellow {
+    background-color: #f5df1f; /* yellow */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    width: 80%;
+    border-radius: 10px;
+  }
+  .button_blue {
+    background-color: #4709f3; /* yellow */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    width: 80%;
+    border-radius: 10px;
+  }
+</style>
+<script language="JavaScript">
+  $('#button1').click(function () {
+      location.href = '/ly/data'
+  })
+  $('#button2').click(function () {
+      location.href = '/ly/fen_data'
+  })
+  $('#button3').click(function () {
+      location.href = '/ly/dian_data'
+  })
+  $('#button4').click(function () {
+      location.href = '/ly/score_data'
+  })
+</script>
+
+<h1 align="center"> Bodyguard Pico Master Test Bench</h1>
+
+<div class="flex">
+  <div class="flex-1">
+    <button class="button_Green" onclick="location.href = '/all_on'">All LED ON</button>
+  </div>
+
+  <div class="flex-1">
+    <button class="button_Green" onclick="location.href = '/channel0_on'">Tower0 ON</button>
+  </div>
+
+  <div class="flex-1">
+    <button class="button_Green" onclick="location.href = '/channel1_on'">Tower1 ON</button>
+  </div>
+
+  <div class="flex-1">
+    <button class="button_yellow" onclick="location.href = '/reset_poe'">Reset POE</button>
+  </div>
+
+
+</div>
+
+<div class="flex">
+
+  <div class="flex-1">
+    <button class="button_red" onclick="location.href = '/all_off'">All LED OFF</button>
+  </div>
+    
+  <div class="flex-1">
+    <button class="button_red" onclick="location.href = '/channel0_off'">Tower0 OFF</button>
+  </div>
+
+  <div class="flex-1">
+    <button class="button_red" onclick="location.href = '/channel1_off'">Tower1 OFF</button>
+  </div>
+  
+  <div class="flex-1">
+    <button class="button_yellow" onclick="location.href = '/reset_master'">Reset NUC</button>
+  </div>
+
+</div>
+
+
+<div class="flex">
+
+  <div class="flex-1">
+    <button class="button_blue" onclick="location.href = '/update_main'">Update Main</button>
+  </div>
+  <div class="flex-1"></div>
+  <div class="flex-1"></div>
+  <div class="flex-1"></div>
+</div>
+
+
+
+<table  border="1" width="100%" >
+  <thead>
+
+  <tr>
+    <th>ID</th><th>DATE</th><th>TIME</th><th>PHOTOEYE</th><th>NUC POWER</th><th>POE POWER</th><th>CHANNEL0</th><th>CHANNEL1</th><th>CHANNEL2</th><th>CHANNEL3</th><th>VERSION</th>
+  </tr>
+
+  </thead>
+  <tbody>
+  {%for obj in data_list%}
+    <tr>
+      <td>{{obj.id}}</td>
+      <td>{{obj.date}}</td>
+      <td>{{obj.time}}</td>
+      <td>{{obj.photoeye}}</td>
+      <td>{{obj.computer}}</td>
+      <td>{{obj.poe_sw}}</td>
+      <td>{{obj.channel0}}</td>
+      <td>{{obj.channel1}}</td>
+      <td>{{obj.channel2}}</td>
+      <td>{{obj.channel3}}</td>
+      <td>{{obj.version}}</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+
+</table>
+</body>
+</html>
+
