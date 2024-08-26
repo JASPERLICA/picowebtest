@@ -29,6 +29,8 @@ urlpatterns = [
     path('channel0_off',views.channel0_off,name='channel0_off'),
 
     path('update_main',views.update_main,name='update_main'),
+    path('led_brighter',views.led_brighter,name='led_brighter'),
+    path('led_dim',views.led_dim,name='led_dim'),
 
     # re_path(r'^signup', views.signup,name='signup')
 ]

@@ -9,7 +9,9 @@ con_flag = False
 
 # TERMINATION_CHAR = '\n'
 try :
-    localhost_to_backend = socket.gethostname() 
+    #localhost_to_backend = socket.gethostname() 
+    #print(localhost_to_backend)
+    localhost_to_backend = "192.168.30.1"
     to_backend_sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     to_backend_sock.connect((localhost_to_backend, web_port))
     print("socket estabished")
@@ -241,6 +243,34 @@ def update_main(request):
             pass
     data = models.PicoMaster.objects.all()
     return render(request, 'master_test.html', {'data_list':data})
+
+
+def led_brighter(request):
+    global on_flag
+    if con_flag == True:
+        command = "led_brighter"    
+        try:    
+            to_backend_sock.send(command.encode())
+            print(f"send to {command}  backend ")
+        except:
+            print("command failed to send out")
+            pass
+    data = models.PicoMaster.objects.all()
+    return render(request, 'master_test.html', {'data_list':data})
+
+def led_dim(request):
+    global on_flag
+    if con_flag == True:
+        command = "led_dim"    
+        try:    
+            to_backend_sock.send(command.encode())
+            print(f"send to {command}  backend ")
+        except:
+            print("command failed to send out")
+            pass
+    data = models.PicoMaster.objects.all()
+    return render(request, 'master_test.html', {'data_list':data})
+
 # def all_off(request):
 #     global on_flag
 #         # global socket
