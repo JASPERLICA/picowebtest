@@ -21,8 +21,8 @@ except:
      pass
 
 
-def index(request):
-    return HttpResponse('this is first page')
+# def index(request):
+#     return HttpResponse('this is first page')
 
 def fl(request):
     # return HttpResponse('this is test for fl')
@@ -40,7 +40,7 @@ def fl(request):
 #     return render(request, 'master_test.html', {'data_list':data})
 
 
-def show(request):
+def index(request):
     data = models.PicoMaster.objects.all()
     return render(request, 'master_test.html', {'data_list':data})
 
@@ -107,7 +107,7 @@ def reset_poe(request):
             pass
     return render(request, 'master_test.html')
 
-def reset_master(request):
+def reset_nuc(request):
     global on_flag
     if con_flag == True:
         command = "nuc reset"     
@@ -119,7 +119,17 @@ def reset_master(request):
             pass
     return render(request, 'master_test.html')
 
-
+def reset_master(request):
+    global on_flag
+    if con_flag == True:
+        command = "reset"     
+        try:    
+            to_backend_sock.send(command.encode())
+            print(f"send to {command}  backend ")
+        except:
+            print("command failed to send out")
+            pass
+    return render(request, 'master_test.html')
 
 
 def channel0_on(request):

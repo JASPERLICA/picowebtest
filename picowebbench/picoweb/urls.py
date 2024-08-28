@@ -4,7 +4,7 @@ from . import views
 urlpatterns = [
     path('', views.index, name='index'),
     path('write', views.write, name='write'),
-    path('show', views.show, name='show'),
+    path('index', views.index, name='index'),
     path('table', views.table_cmd, name='table_cmd'),
     path('fl', views.fl, name='fl'),
     path('fldata', views.fldata, name='fldata'),
@@ -17,6 +17,7 @@ urlpatterns = [
     path('all_off',views.all_off,name='all_off'),
     path('reset_poe',views.reset_poe,name='reset_poe'),
     path('reset_master',views.reset_master,name='reset_master'),
+    path('reset_nuc',views.reset_nuc,name='reset_nuc'),
 
     path('channel1_on',views.channel1_on,name='channel1_on'),
     path('channel2_on',views.channel2_on,name='channel2_on'),
