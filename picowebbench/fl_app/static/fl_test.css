@@ -1,0 +1,62 @@
+body {
+    font-family: verdana;
+    /* background-image: url(../static/images/high2.jpg)"; */
+    /* background-image: url(/images/hihg2.jpg)"; */
+    /* background-color: #cccccc; */
+    /* background-image: url("{% static "images/high2.jpg" %}"); */
+
+
+  }
+
+
+.button {
+
+
+    background-color: #0000FF; /* Blue */
+    
+    
+    border-radius: 10px;
+    
+    
+    color: white;
+    
+    
+    padding: 20px 32px;
+    
+    
+    text-align: center;
+    
+    
+    text-decoration: none;
+    
+    
+    display: inline-block;
+    
+    
+    font-size: 18px;
+    
+    
+ }
+
+ .table {
+  display: table;
+}
+
+.row {
+  display: table-row;
+}
+
+.header, .data {
+  display: table-cell;
+  padding: 10px;
+}
+
+.header {
+  font-weight: bold;
+  background-color: #f0f0f0;
+}
+
+.data {
+  background-color: #ffffff;
+}
+

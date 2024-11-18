@@ -7,6 +7,7 @@ import socket
 web_port = 18001
 con_flag = False
 
+# http://127.0.0.1:8000/all_off
 # TERMINATION_CHAR = '\n'
 try :
     #localhost_to_backend = socket.gethostname() 
@@ -24,10 +25,7 @@ except:
 # def index(request):
 #     return HttpResponse('this is first page')
 
-def fl(request):
-    # return HttpResponse('this is test for fl')
-    data = models.FLtester.objects.all()
-    return render(request, 'fl_data.html', {'data_list':data})
+
 
 # Create your views here.
 # def write_in(request):
@@ -41,7 +39,9 @@ def fl(request):
 
 
 def index(request):
-    data = models.PicoMaster.objects.all()
+    data_all = models.PicoMaster.objects.all()
+    length= data_all.count()
+    data = data_all[length-10:length]
     return render(request, 'master_test.html', {'data_list':data})
 
 
@@ -72,33 +72,37 @@ def write(request):
 def all_on(request):
     global on_flag
     if con_flag == True:
-        command = "all on" 
+        command = "all_on" 
         try:    
             to_backend_sock.send(command.encode())
             print(f"send to {command}  backend ")
         except:
             print("command failed to send out")
             pass
-    data = models.PicoMaster.objects.all()
+    data_all = models.PicoMaster.objects.all()
+    length= data_all.count()
+    data = data_all[length-10:length]
     return render(request, 'master_test.html', {'data_list':data})
 
 def all_off(request):
     global on_flag
     if con_flag == True:
-        command = "all off"    
+        command = "all_off"    
         try:    
             to_backend_sock.send(command.encode())
             print(f"send to {command}  backend ")
         except:
             print("command failed to send out")
             pass
-    data = models.PicoMaster.objects.all()
+    data_all = models.PicoMaster.objects.all()
+    length= data_all.count()
+    data = data_all[length-10:length]
     return render(request, 'master_test.html', {'data_list':data})
 
 def reset_poe(request):
     global on_flag
     if con_flag == True:
-        command = "poe reset"     
+        command = "poe_reset"     
         try:    
             to_backend_sock.send(command.encode())
             print(f"send to {command}  backend ")
@@ -110,7 +114,7 @@ def reset_poe(request):
 def reset_nuc(request):
     global on_flag
     if con_flag == True:
-        command = "nuc reset"     
+        command = "nuc_reset"     
         try:    
             to_backend_sock.send(command.encode())
             print(f"send to {command}  backend ")
@@ -142,7 +146,9 @@ def channel0_on(request):
         except:
             print("command failed to send out")
             pass
-    data = models.PicoMaster.objects.all()
+    data_all = models.PicoMaster.objects.all()
+    length= data_all.count()
+    data = data_all[length-10:length]
     return render(request, 'master_test.html', {'data_list':data})
 
 def channel0_off(request):
@@ -155,7 +161,9 @@ def channel0_off(request):
         except:
             print("command failed to send out")
             pass
-    data = models.PicoMaster.objects.all()
+    data_all = models.PicoMaster.objects.all()
+    length= data_all.count()
+    data = data_all[length-10:length]
     return render(request, 'master_test.html', {'data_list':data})
 
 
@@ -169,7 +177,9 @@ def channel1_on(request):
         except:
             print("command failed to send out")
             pass
-    data = models.PicoMaster.objects.all()
+    data_all = models.PicoMaster.objects.all()
+    length= data_all.count()
+    data = data_all[length-10:length]
     return render(request, 'master_test.html', {'data_list':data})
 
 def channel1_off(request):
@@ -182,7 +192,9 @@ def channel1_off(request):
         except:
             print("command failed to send out")
             pass
-    data = models.PicoMaster.objects.all()
+    data_all = models.PicoMaster.objects.all()
+    length= data_all.count()
+    data = data_all[length-10:length]
     return render(request, 'master_test.html', {'data_list':data})
 
 
@@ -196,7 +208,9 @@ def channel2_on(request):
         except:
             print("command failed to send out")
             pass
-    data = models.PicoMaster.objects.all()
+    data_all = models.PicoMaster.objects.all()
+    length= data_all.count()
+    data = data_all[length-10:length]
     return render(request, 'master_test.html', {'data_list':data})
 
 def channel2_off(request):
@@ -209,7 +223,9 @@ def channel2_off(request):
         except:
             print("command failed to send out")
             pass
-    data = models.PicoMaster.objects.all()
+    data_all = models.PicoMaster.objects.all()
+    length= data_all.count()
+    data = data_all[length-10:length]
     return render(request, 'master_test.html', {'data_list':data})
 
 
@@ -223,7 +239,9 @@ def channel3_on(request):
         except:
             print("command failed to send out")
             pass
-    data = models.PicoMaster.objects.all()
+    data_all = models.PicoMaster.objects.all()
+    length= data_all.count()
+    data = data_all[length-10:length]
     return render(request, 'master_test.html', {'data_list':data})
 
 def channel3_off(request):
@@ -236,7 +254,9 @@ def channel3_off(request):
         except:
             print("command failed to send out")
             pass
-    data = models.PicoMaster.objects.all()
+    data_all = models.PicoMaster.objects.all()
+    length= data_all.count()
+    data = data_all[length-10:length]
     return render(request, 'master_test.html', {'data_list':data})
 
 
@@ -251,7 +271,9 @@ def update_main(request):
         except:
             print("command failed to send out")
             pass
-    data = models.PicoMaster.objects.all()
+    data_all = models.PicoMaster.objects.all()
+    length= data_all.count()
+    data = data_all[length-10:length]
     return render(request, 'master_test.html', {'data_list':data})
 
 
@@ -265,7 +287,9 @@ def led_brighter(request):
         except:
             print("command failed to send out")
             pass
-    data = models.PicoMaster.objects.all()
+    data_all = models.PicoMaster.objects.all()
+    length= data_all.count()
+    data = data_all[length-10:length]
     return render(request, 'master_test.html', {'data_list':data})
 
 def led_dim(request):
@@ -278,7 +302,56 @@ def led_dim(request):
         except:
             print("command failed to send out")
             pass
-    data = models.PicoMaster.objects.all()
+        
+    data_all = models.PicoMaster.objects.all()
+    length= data_all.count()
+    data = data_all[length-10:length]
+
+    return render(request, 'master_test.html', {'data_list':data})
+
+def fun_on(request):
+    global on_flag
+    if con_flag == True:
+        command = "fun_on" 
+        try:    
+            to_backend_sock.send(command.encode())
+            print(f"send to {command}  backend ")
+        except:
+            print("command failed to send out")
+            pass
+    data_all = models.PicoMaster.objects.all()
+    length= data_all.count()
+    data = data_all[length-10:length]
+    return render(request, 'master_test.html', {'data_list':data})
+
+def fun_off(request):
+    global on_flag
+    if con_flag == True:
+        command = "fun_off" 
+        try:    
+            to_backend_sock.send(command.encode())
+            print(f"send to {command}  backend ")
+        except:
+            print("command failed to send out")
+            pass
+    data_all = models.PicoMaster.objects.all()
+    length= data_all.count()
+    data = data_all[length-10:length]
+    return render(request, 'master_test.html', {'data_list':data})
+
+def serial_test(request):
+    global on_flag
+    if con_flag == True:
+        command = "serial_test" 
+        try:    
+            to_backend_sock.send(command.encode())
+            print(f"send to {command}  backend ")
+        except:
+            print("command failed to send out")
+            pass
+    data_all = models.PicoMaster.objects.all()
+    length= data_all.count()
+    data = data_all[length-10:length]
     return render(request, 'master_test.html', {'data_list':data})
 
 # def all_off(request):

@@ -74,6 +74,33 @@
     width: 80%;
     border-radius: 10px;
   }
+  .button_purple {
+    background-color: #726933; /* yellow */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    width: 80%;
+    border-radius: 10px;
+  }
+
+  .button_fun {
+    background-color: #a3e982; /* yellow */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    width: 80%;
+    border-radius: 10px;
+  }
 </style>
 <script language="JavaScript">
   $('#button1').click(function () {
@@ -94,10 +121,6 @@
 
 <div class="flex">
   <div class="flex-1">
-    <button class="button_Green" onclick="location.href = '/all_on'">All LED ON</button>
-  </div>
-
-  <div class="flex-1">
     <button class="button_Green" onclick="location.href = '/channel0_on'">Tower0 ON</button>
   </div>
 
@@ -106,18 +129,15 @@
   </div>
 
   <div class="flex-1">
-    <button class="button_yellow" onclick="location.href = '/reset_poe'">Reset POE</button>
+    <button class="button_Green" onclick="location.href = '/channel2_on'">Tower2 ON</button>
   </div>
 
-
+  <div class="flex-1">
+    <button class="button_Green" onclick="location.href = '/channel3_on'">Tower3 ON</button>
+  </div>
 </div>
 
 <div class="flex">
-
-  <div class="flex-1">
-    <button class="button_red" onclick="location.href = '/all_off'">All LED OFF</button>
-  </div>
-    
   <div class="flex-1">
     <button class="button_red" onclick="location.href = '/channel0_off'">Tower0 OFF</button>
   </div>
@@ -127,16 +147,38 @@
   </div>
   
   <div class="flex-1">
-    <button class="button_yellow" onclick="location.href = '/reset_nuc'">Reset NUC</button>
+    <button class="button_red" onclick="location.href = '/channel2_off'">Tower2 OFF</button>
   </div>
 
+  <div class="flex-1">
+    <button class="button_red" onclick="location.href = '/channel3_off'">Tower3 OFF</button>
+  </div>
 </div>
 
 
 <div class="flex">
 
   <div class="flex-1">
-    <button class="button_blue" onclick="location.href = '/update_main'">Update Code</button>
+    <button class="button_Green" onclick="location.href = '/all_on'">All LED ON</button>
+  </div>
+
+  <div class="flex-1">
+    <button class="button_yellow" onclick="location.href = '/reset_poe'">Reset POE</button>
+  </div>
+
+  <div class="flex-1">
+    <button class="button_yellow" onclick="location.href = '/reset_nuc'">Reset NUC</button>
+  </div>
+
+  <div class="flex-1">
+    <button class="button_yellow" onclick="location.href = '/reset_master'">Reset ALL</button>
+  </div>
+
+</div>
+
+<div class="flex">
+  <div class="flex-1">
+    <button class="button_red" onclick="location.href = '/all_off'">All LED OFF</button>
   </div>
   <div class="flex-1">
     <button class="button_blue" onclick="location.href = '/led_brighter'">LED Brighter</button>
@@ -145,7 +187,23 @@
     <button class="button_blue" onclick="location.href = '/led_dim'">LED Dim</button>
   </div>
   <div class="flex-1">
-    <button class="button_yellow" onclick="location.href = '/reset_master'">Reset ALL</button>
+    <button class="button_purple" onclick="location.href = '/update_main'">Update Code</button>
+  </div>
+</div>
+
+
+<div class="flex">
+  <div class="flex-1">
+    <button class="button_fun" onclick="location.href = '/fun_on'">FUN ON</button>
+  </div>
+  <div class="flex-1">
+    <button class="button_fun" onclick="location.href = '/fun_off'">FUN OFF</button>
+  </div>
+  <div class="flex-1">
+   
+  </div>
+  <div class="flex-1">
+    <button class="button_purple" onclick="location.href = '/serial_test'">Serial Test</button>
   </div>
 </div>
 
@@ -155,12 +213,12 @@
   <thead>
 
   <tr>
-    <th>ID</th><th>DATE</th><th>TIME</th><th>PHOTOEYE</th><th>NUC POWER</th><th>POE POWER</th><th>CHANNEL0</th><th>CHANNEL1</th><th>CHANNEL2</th><th>CHANNEL3</th><th>VERSION</th>
+    <th>ID</th><th>DATE</th><th>TIME</th><th>PHOTOEYE</th><th>NUC POWER</th><th>POE POWER</th><th>CHANNEL0</th><th>CHANNEL1</th><th>CHANNEL2</th><th>CHANNEL3</th><th>Temp</th><th>Humi</th><th>VERSION</th>
   </tr>
 
   </thead>
   <tbody>
-  {%for obj in data_list%}
+  {%for obj in data_list %}
     <tr>
       <td>{{obj.id}}</td>
       <td>{{obj.date}}</td>
@@ -172,7 +230,10 @@
       <td>{{obj.channel1}}</td>
       <td>{{obj.channel2}}</td>
       <td>{{obj.channel3}}</td>
+      <td>{{obj.temper}}</td>
+      <td>{{obj.humidity}}</td>
       <td>{{obj.version}}</td>
+      
     </tr>
   {% endfor %}
   </tbody>

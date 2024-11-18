@@ -20,8 +20,19 @@ from django.urls import path, include
 
 from django.conf import settings
 from django.conf.urls.static import static
+from picoweb.views import index
+
+from picoweb import views as av_1
+from fl_app import views as av_3
+
 
 urlpatterns = [
     path('', include('picoweb.urls')),
+    path('fl_test/', include('fl_app.urls')),
+
     path('admin/', admin.site.urls),
+    path('picoweb/', av_1.index),
+    # path('fl_test/', av_3.index),
+    
 ]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+

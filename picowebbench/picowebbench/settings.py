@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'picoweb',
+    'fl_app',
 ]
 
 MIDDLEWARE = [
@@ -89,6 +90,11 @@ DATABASES = {
         'PORT': 3306,
         'USER': 'root',  # 数据库设置的用户名
         'PASSWORD': '',  # 数据库设置的密码
+        'OPTIONS': {
+           "init_command": "SET GLOBAL max_connections = 100000",  
+           'init_command': "SET sql_mode='STRICT_TRANS_TABLES'" 
+           #<-- to fix django.db.utils.OperationalError: (1040, 'Too many connections')
+        }
     }
 }
 

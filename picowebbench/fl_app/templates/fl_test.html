@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    {%load static%}
+    <!-- <img src="{% static 'images/high2.jpg' %}" alt="My image"> -->
+    <!-- <link rel="stylesheet" href = "{% static 'myfirst.css'%}"> -->
+    <body style="background-image: url('{% static 'images/rainball.png' %}')">  
+</head>
+<body>
+<style>
+  .flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    margin: 0 auto;
+  }
+  .flex-1 {
+    flex: 1;
+    margin: 5px;
+  }
+  .button_Green {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    width: 80%;
+    border-radius: 10px;
+  }
+  .button_red {
+    background-color: #eb3720; /* red */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    width: 80%;
+    border-radius: 10px;
+  }
+  .button_yellow {
+    background-color: #f5df1f; /* yellow */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    width: 80%;
+    border-radius: 10px;
+  }
+  .button_blue {
+    background-color: #4709f3; /* yellow */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    width: 80%;
+    border-radius: 10px;
+  }
+  .button_purple {
+    background-color: #726933; /* yellow */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    width: 80%;
+    border-radius: 10px;
+  }
+
+  .button_fun {
+    background-color: #a3e982; /* yellow */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    width: 80%;
+    border-radius: 10px;
+  }
+</style>
+<script language="JavaScript">
+  $('#button1').click(function () {
+      location.href = '/ly/data'
+  })
+  $('#button2').click(function () {
+      location.href = '/ly/fen_data'
+  })
+  $('#button3').click(function () {
+      location.href = '/ly/dian_data'
+  })
+  $('#button4').click(function () {
+      location.href = '/ly/score_data'
+  })
+</script>
+
+<h1 align="center"> FL&BG&Intensity Board test bench</h1>
+
+<div class="flex">
+  <div class="flex-1">
+    <button class="button_Green" onclick="location.href = '/fl_test/test'">TEST</button>
+  </div>
+
+  <div class="flex-1">
+    <button class="button_yellow" onclick="location.href = '/fl_test/fl'">RESULT</button>
+  </div>
+</div>
+
+
+
+<table  border="1" width="100%" >
+  <thead>
+
+  <tr bgcolor = "green">
+    <th >ID</th>
+
+    <th>DATE</th>
+    <th>TIME</th>
+
+    <th>IP</th>
+    <th>MAC</th>
+
+    <th>VERSION</th>
+
+    <th>RED</th>
+    <th>GREEN</th>
+    <th>BLUE</th>
+
+    <th>LED1</th>
+    <th>LED2</th>
+    <th>LED3</th>
+    <th>LED4</th>
+    <th>TOP</th>
+    <th>BTM</th>
+    <th>T3D</th>
+    <th>24V_SM</th>
+    <th>Detail</th>
+    
+  </tr>
+
+  </thead>
+  <tbody>
+  {%for obj in data_list %}
+    <tr>
+      <td>{{obj.ID}}</td>
+
+      <td>{{obj.DATE}}</td>
+      <td>{{obj.TIME}}</td>
+
+      <td>{{obj.FL_IP}}</td>
+      <td>{{obj.MAC_ADDRESS}}</td>
+
+      <td>{{obj.VERSION}}</td>
+
+      <td>{{obj.GPIO_RED}}</td>
+      <td>{{obj.GPIO_GREEN}}</td>
+      <td>{{obj.GPIO_BLUE}}</td>
+
+      <td>{{obj.GPIO_LED1}}</td>
+      <td>{{obj.GPIO_LED2}}</td>
+      <td>{{obj.GPIO_LED3}}</td>
+      <td>{{obj.GPIO_LED4}}</td>
+
+      <td>{{obj.GPIO_LASER_TOP}}</td>
+      <td>{{obj.GPIO_LASER_BTM}}</td>
+      <td>{{obj.GPIO_LASER_T3D}}</td>
+
+      <td>{{obj.GPIO_24V_SM}}</td>
+      <!-- <td>{{obj.TOP_VALUE}}</td>
+      <td>{{obj.BTM_VALUE}}</td> -->
+      <td>
+        <div class="flex-1">
+          <!-- <button class="button_blue" onclick="location.href = '/fl_test/check/?id={{obj.ID}}'">Check</button> -->
+          <button class="button_blue" onclick="location.href = '/fl_test/check/{{obj.ID}}'">Check</button>
+        </div>
+      </td>
+      
+    </tr>
+  {% endfor %}
+  </tbody>
+
+</table>
+</body>
+</html>

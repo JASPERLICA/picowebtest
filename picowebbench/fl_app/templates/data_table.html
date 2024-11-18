@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    {%load static%}
+    <!-- <img src="{% static 'images/high2.jpg' %}" alt="My image"> -->
+    <!-- <link rel="stylesheet" href = "{% static 'myfirst.css'%}"> -->
+    <body style="background-image: url('{% static 'images/rainball.png' %}')">  
+</head>
+<body>
+<style>
+  .flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    margin: 0 auto;
+  }
+  .flex-1 {
+    flex: 1;
+    margin: 5px;
+  }
+  .button_Green {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    width: 80%;
+    border-radius: 10px;
+  }
+  .button_red {
+    background-color: #eb3720; /* red */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    width: 80%;
+    border-radius: 10px;
+  }
+  .button_yellow {
+    background-color: #f5df1f; /* yellow */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    width: 80%;
+    border-radius: 10px;
+  }
+  .button_blue {
+    background-color: #4709f3; /* yellow */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    width: 80%;
+    border-radius: 10px;
+  }
+  .button_purple {
+    background-color: #726933; /* yellow */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    width: 80%;
+    border-radius: 10px;
+  }
+
+  .button_fun {
+    background-color: #a3e982; /* yellow */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    width: 80%;
+    border-radius: 10px;
+  }
+
+.table {
+  display: table;
+}
+
+.row {
+  display: table-row;
+}
+
+.header, .data {
+  display: table-cell;
+  padding: 10px;
+
+}
+
+.header {
+  font-weight: bold;
+  background-color: #f0f0f0;
+  border:"1";
+  width:"100%"
+}
+
+.data {
+  background-color: #ffffff;
+}
+
+</style>
+<script language="JavaScript">
+  $('#button1').click(function () {
+      location.href = '/ly/data'
+  })
+  $('#button2').click(function () {
+      location.href = '/ly/fen_data'
+  })
+  $('#button3').click(function () {
+      location.href = '/ly/dian_data'
+  })
+  $('#button4').click(function () {
+      location.href = '/ly/score_data'
+  })
+</script>
+
+<h1 align="center"> FL&BG&Intensity Board Data Tested</h1>
+
+<div class="flex">
+    <div class="flex-1">
+        {%for obj in data_list2 %}
+        <div class="row">
+            <div class="header">ID</div>
+            <div class="data">{{obj.ID}}</div>
+        </div>
+        <div class="row">
+            <div class="header">MAC_ADDRESS</div>
+            <div class="data">{{obj.MAC_ADDRESS}}</div>
+        </div>
+        
+        <div class="row">
+            <div class="header">DATE</div>
+            <div class="data">{{obj.DATE}}</div>
+        </div>
+        <div class="row">
+            <div class="header">TIME</div>
+            <div class="data">{{obj.TIME}}</div>
+        </div>
+        <div class="row">
+            <div class="header">voltage5v</div>
+            <div class="data">{{obj.voltage5v}}</div>
+        </div>
+        <div class="row">
+            <div class="header">voltage3v3</div>
+            <div class="data">{{obj.voltage3v3}}</div>
+        </div>
+        <div class="row">
+            <div class="header">voltage24s</div>
+            <div class="data">{{obj.voltage24s}}</div>
+        </div>
+        <div class="row">
+            <div class="header">voltage3d</div>
+            <div class="data">{{obj.voltage3d}}</div>
+        </div>
+        <div class="row">
+            <div class="header">voltage48</div>
+            <div class="data">{{obj.voltage48}}</div>
+        </div>
+        <div class="row">
+            <div class="header">voltage24lower</div>
+            <div class="data">{{obj.voltage24lower}}</div>
+        </div>
+        <div class="row">
+            <div class="header">voltage24upper</div>
+            <div class="data">{{obj.voltage24upper}}</div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="flex-1">
+    {%for obj in data_list1 %}
+        
+        
+        <div class="row">
+            <div class="header">LED1</div>
+            <div class="data">{{obj.GPIO_LED1}}</div>
+        </div>
+        <div class="row">
+            <div class="header">LED2</div>
+            <div class="data">{{obj.GPIO_LED2}}</div>
+        </div>
+        <div class="row">
+            <div class="header">LED3</div>
+            <div class="data">{{obj.GPIO_LED3}}</div>
+        </div>
+        <div class="row">
+            <div class="header">LED4</div>
+            <div class="data">{{obj.GPIO_LED4}}</div>
+        </div>
+        <div class="row">
+            <div class="header">RED</div>
+            <div class="data">{{obj.GPIO_RED}}</div>
+        </div>
+        <div class="row">
+            <div class="header">GREEN</div>
+            <div class="data">{{obj.GPIO_GREEN}}</div>
+        </div>
+        <div class="row">
+            <div class="header">BLUE</div>
+            <div class="data">{{obj.GPIO_BLUE}}</div>
+        </div>
+        <div class="row">
+            <div class="header">TOP</div>
+            <div class="data">{{obj.GPIO_LASER_TOP}}</div>
+        </div>
+        <div class="row">
+            <div class="header">BTM</div>
+            <div class="data">{{obj.GPIO_LASER_BTM}}</div>
+        </div>
+        <div class="row">
+            <div class="header">T3D</div>
+            <div class="data">{{obj.GPIO_LASER_T3D}}</div>
+        </div>
+        <div class="row">
+            <div class="header">24V_SM</div>
+            <div class="data">{{obj.GPIO_24V_SM}}</div>
+        </div>
+    {% endfor %}
+    </div>
+
+
+</div>
+
+<table  border="1" width="100%" >
+  <thead>
+  <tr bgcolor = "green">
+    <th >ID</th>
+
+    <th>MAC</th>
+
+    <th>RED</th>
+    <th>GREEN</th>
+    <th>BLUE</th>
+
+    <th>LED1</th>
+    <th>LED2</th>
+    <th>LED3</th>
+    <th>LED4</th>
+    <th>TOP</th>
+    <th>BTM</th>
+    <th>T3D</th>
+    <th>24V_SM</th>
+  </tr>
+
+  </thead>
+  <tbody>
+  {%for obj in data_list1 %}
+    <tr>
+      <td>{{obj.ID}}</td>
+
+      <td>{{obj.MAC_ADDRESS}}</td>
+
+      <td>{{obj.GPIO_RED}}</td>
+      <td>{{obj.GPIO_GREEN}}</td>
+      <td>{{obj.GPIO_BLUE}}</td>
+
+      <td>{{obj.GPIO_LED1}}</td>
+      <td>{{obj.GPIO_LED2}}</td>
+      <td>{{obj.GPIO_LED3}}</td>
+      <td>{{obj.GPIO_LED4}}</td>
+
+      <td>{{obj.GPIO_LASER_TOP}}</td>
+      <td>{{obj.GPIO_LASER_BTM}}</td>
+      <td>{{obj.GPIO_LASER_T3D}}</td>
+
+      <td>{{obj.GPIO_24V_SM}}</td>
+
+      <!-- <td>{{obj.TOP_VALUE}}</td>
+      <td>{{obj.BTM_VALUE}}</td> -->
+      
+      
+      
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+
+
+<table  border="1" width="100%" >
+    <thead>
+    <tr bgcolor = "yellow">
+      <th >ID</th>
+      <th>MAC_ADDRESS</th>
+      <th>DATE</th>
+      <th>TIME</th>
+
+      <th>voltage5v</th>
+      <th>voltage3v3</th>
+      <th>voltage24s</th>
+      <th>voltage3d</th>
+      <th>voltage48</th>
+      <th>voltage24lower</th>
+      <th>voltage24upper</th>
+    </tr>  
+    </thead>
+    <tbody>
+    {%for obj in data_list2 %}
+      <tr>
+        <td>{{obj.ID}}</td>
+        <td>{{obj.MAC_ADDRESS}}</td>
+        <td>{{obj.DATE}}</td>
+        <td>{{obj.TIME}}</td>
+  
+  
+        <td>{{obj.voltage5v}}</td>
+        <td>{{obj.voltage3v3}}</td>
+        <td>{{obj.voltage24s}}</td>
+        <td>{{obj.voltage3d}}</td>
+  
+        <td>{{obj.voltage48}}</td>
+        <td>{{obj.voltage24lower}}</td>
+        <td>{{obj.voltage24upper}}</td>
+
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+
+</body>
+</html>

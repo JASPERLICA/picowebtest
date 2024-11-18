@@ -6,8 +6,7 @@ urlpatterns = [
     path('write', views.write, name='write'),
     path('index', views.index, name='index'),
     path('table', views.table_cmd, name='table_cmd'),
-    path('fl', views.fl, name='fl'),
-    path('fldata', views.fldata, name='fldata'),
+    
 
     # path('signup',views.signup,name='signup'),
     # path('signin',views.signin,name='signin'),
@@ -32,6 +31,10 @@ urlpatterns = [
     path('update_main',views.update_main,name='update_main'),
     path('led_brighter',views.led_brighter,name='led_brighter'),
     path('led_dim',views.led_dim,name='led_dim'),
+
+    path('fun_on',views.fun_on,name='fun_on'),
+    path('fun_off',views.fun_off,name='fun_off'),
+    path('serial_test',views.serial_test,name='serial_test'),
 
     # re_path(r'^signup', views.signup,name='signup')
 ]
