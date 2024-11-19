@@ -126,7 +126,19 @@
 .data {
   background-color: #ffffff;
 }
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
 
+.header {
+  font-weight: bold;
+  background-color: #f0f0f0;
+}
+
+.data {
+  background-color: #ffffff;
+}
 </style>
 <script language="JavaScript">
   $('#button1').click(function () {
@@ -246,9 +258,19 @@
         </div>
     {% endfor %}
     </div>
-
+    
+    <div class="flex-1">
+        <img src= "/static/images/jasper0.png"  style = "width:100%">
+        <!-- <img src="C:/Users/Jasper/picowebtestvene/picowebbench/fl_app/templates/jasper0.png" alt="C:/Users/Jasper/picowebtestvene/picowebbench/fl_app/static/images/tech_pic.png" "style = "width:100%"> -->
+    </div>
+    <div class="flex-1">
+        <img src= "/static/images/jasper1.png"  style = "width:100%">
+        <!-- <img src="C:/Users/Jasper/picowebtestvene/picowebbench/fl_app/templates/jasper0.png" alt="C:/Users/Jasper/picowebtestvene/picowebbench/fl_app/static/images/tech_pic.png" "style = "width:100%"> -->
+    </div>
 
 </div>
+
+<!-- alt="C:/Users/Jasper/picowebtestvene/picowebbench/fl_app/static/images/tech_pic.png" -->
 
 <table  border="1" width="100%" >
   <thead>
@@ -345,5 +367,9 @@
     </tbody>
   </table>
 
+  <img src= "/static/images/jasper0.png"  style = "width:100%">
+  <img src= "/static/images/jasper1.png"  style = "width:100%">
+  <!-- <img src="C:/Users/Jasper/picowebtestvene/picowebbench/fl_app/templates/jasper0.png" alt="C:/Users/Jasper/picowebtestvene/picowebbench/fl_app/static/images/tech_pic.png" "style = "width:100%"> -->
+    
 </body>
 </html>

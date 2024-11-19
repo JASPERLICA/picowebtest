@@ -9,17 +9,18 @@ con_flag = False
 
 # http://127.0.0.1:8000/all_off
 # TERMINATION_CHAR = '\n'
-try :
-    #localhost_to_backend = socket.gethostname() 
-    #print(localhost_to_backend)
-    localhost_to_backend = "192.168.30.1"
-    to_backend_sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    to_backend_sock.connect((localhost_to_backend, web_port))
-    print("socket estabished")
-    con_flag = True
-except:
-     print("socket failed to estabish")
-     pass
+
+# try :
+#     #localhost_to_backend = socket.gethostname() 
+#     #print(localhost_to_backend)
+#     localhost_to_backend = "192.168.30.1"
+#     to_backend_sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+#     to_backend_sock.connect((localhost_to_backend, web_port))
+#     print("socket estabished")
+#     con_flag = True
+# except:
+#      print("socket failed to estabish")
+#      pass
 
 
 # def index(request):
